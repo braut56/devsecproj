@@ -42,7 +42,3 @@ jobs:
       - name: Run ESLint
         working-directory: ${{ matrix.component }}
         run: npm run lint
-
-  
-          git diff --cached --quiet || git commit -m "ci: update k8s images to ${{ steps.sha.outputs.short }} [skip ci]"
-          git push
