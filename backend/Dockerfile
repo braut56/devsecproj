@@ -19,7 +19,8 @@ FROM node:20.8.1-alpine AS production
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Install dumb-init from GitHub release to pin version
-RUN wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init \
+RUN apk add --no-cache wget \
+    && wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init \
     && chmod +x /usr/local/bin/dumb-init
 
 WORKDIR /app
